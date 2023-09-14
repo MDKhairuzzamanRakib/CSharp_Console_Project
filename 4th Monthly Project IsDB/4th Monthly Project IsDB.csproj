@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPart\AdminDB.cs" />
     <Compile Include="AdminPart\AdminInfo.cs" />
+    <Compile Include="AdminPart\AdminRepo.cs" />
+    <Compile Include="AdminPart\IRepo.cs" />
     <Compile Include="OwnerPart\OwnerInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

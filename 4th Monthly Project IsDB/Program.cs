@@ -59,10 +59,12 @@ namespace _4th_Monthly_Project_IsDB
             if (AccessKey.ToLower() == "khairuzzaman")
             {
                 Console.WriteLine("\n\t\t\t\t\t***************************************\n");
-                Console.WriteLine("1. Add Admin");
-                Console.WriteLine("2. Edit Admin");
-                Console.WriteLine("3. Delete Admin");
+                Console.WriteLine("1. View Admin");
+                Console.WriteLine("2. Add Admin");
+                Console.WriteLine("3. Edit Admin");
+                Console.WriteLine("4. Delete Admin");
                 Console.Write("Option : ");
+
             }
             else
             {
