@@ -58,7 +58,7 @@ namespace _4th_Monthly_Project_IsDB
         //Owner Part Start From Here
         public static void OwnerPart()
         {
-            Console.Write("Enter Your Access Key : ");
+            Console.Write("\nEnter Your Access Key : ");
             string AccessKey = Console.ReadLine();
 
             if (AccessKey.ToLower() == "khairuzzaman")
@@ -80,6 +80,7 @@ namespace _4th_Monthly_Project_IsDB
                 Console.WriteLine("2. Add Admin");
                 Console.WriteLine("3. Edit Admin");
                 Console.WriteLine("4. Delete Admin");
+                Console.WriteLine("0. Back");
                 Console.Write("Option : ");
 
                 var index = int.Parse(Console.ReadLine());
@@ -190,6 +191,20 @@ namespace _4th_Monthly_Project_IsDB
                     }
                 }
 
+                //Go to Back
+                else if (index == 0)
+                {
+                    Display();
+                }
+
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nPlease select correct Option");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Display();
+                }
+
 
                 //Display Total Admins
                 void DisplayTotalAdmin()
@@ -198,9 +213,9 @@ namespace _4th_Monthly_Project_IsDB
                     if (adminList.Count() == 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\n\t\t\t\t\t============================");
-                        Console.WriteLine("\t\t\t\t\tNo item found in the list!!!");
-                        Console.WriteLine("\t\t\t\t\t============================");
+                        Console.WriteLine("\n\t\t\t\t\t=============================");
+                        Console.WriteLine("\t\t\t\t\tNo Admin found in the list!!!");
+                        Console.WriteLine("\t\t\t\t\t=============================");
                         Console.ForegroundColor = ConsoleColor.White;
                         AccessDone();
 
@@ -227,7 +242,55 @@ namespace _4th_Monthly_Project_IsDB
         //Admin Part Start From Here
         public static void AdminPart()
         {
-            Console.WriteLine("Admin Part");
+            AdminRepo adminRepo = new AdminRepo();
+            var adminList = adminRepo.ShowAdmin();
+            if (adminList.Count() == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\n\t\t\t\t\t============================");
+                Console.WriteLine("\t\t\t\t\tNo Admin found in the list!!!");
+                Console.WriteLine("\t\t\t\t\t============================");
+                Console.ForegroundColor = ConsoleColor.White;
+                Display();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("\n\t\t\t\t\t***************************************\n");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.Write("Admin Id : ");
+                int id = int.Parse(Console.ReadLine());
+                Console.Write("Admin Password : ");
+                string password = Console.ReadLine();
+
+                foreach (var item in adminRepo.ShowAdmin())
+                {
+                    if (item.AdminId != id || item.AdminPass != password)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\n\t\t\t\t\t===================================");
+                        Console.WriteLine("\t\t\t\t\tAdmin Id or Admin Password is Wrong");
+                        Console.WriteLine("\t\t\t\t\t===================================");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        AdminPart();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine("\n\t\t\t\t\t=============================");
+                        Console.WriteLine($"\t\t\t\t\tWelcome {item.AdminName}");
+                        Console.WriteLine("\t\t\t\t\t=============================");
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("\n1. View all Menu\n2. Insert an Item\n3. Update an Item\n4. Delete an Item\n0. Back\nOption : ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        int index = int.Parse(Console.ReadLine());
+                    }
+                }
+            }
+
         }
 
         //Customer Part Start From Here

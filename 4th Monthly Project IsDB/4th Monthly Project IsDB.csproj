@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPart\AdminDB.cs" />
-    <Compile Include="AdminPart\AdminInfo.cs" />
-    <Compile Include="AdminPart\AdminRepo.cs" />
-    <Compile Include="AdminPart\IRepo.cs" />
-    <Compile Include="OwnerPart\OwnerInfo.cs" />
+    <Compile Include="OwnerPart\AdminDB.cs" />
+    <Compile Include="OwnerPart\AdminInfo.cs" />
+    <Compile Include="OwnerPart\AdminRepo.cs" />
+    <Compile Include="OwnerPart\IRepo.cs" />
+    <Compile Include="AdminPart\OwnerInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserType.cs" />
