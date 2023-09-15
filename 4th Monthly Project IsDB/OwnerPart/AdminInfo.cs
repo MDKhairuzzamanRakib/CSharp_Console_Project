@@ -11,5 +11,7 @@ namespace _4th_Monthly_Project_IsDB.AdminPart
         public int AdminId { get; set; }
         public string AdminName { get; set; }
         public string AdminPass { get; set; }
+        public int AdminAge { get; set; }
+        public int AdminPhone { get; set; }
     }
 }

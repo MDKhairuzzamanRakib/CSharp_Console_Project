@@ -23,7 +23,7 @@ namespace _4th_Monthly_Project_IsDB
             int temp = 0;
             while (temp == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\t\t\t\t\t***************************************\n");
                 Console.WriteLine("\t\t\t\t\tWelcome to Food Shop Management System");
                 Console.WriteLine("\n\t\t\t\t\t***************************************\n");
@@ -106,6 +106,10 @@ namespace _4th_Monthly_Project_IsDB
                     string name = Console.ReadLine();
                     Console.Write("Admin Password : ");
                     string password = Console.ReadLine();
+                    Console.Write("Admin Age : ");
+                    int age = int.Parse(Console.ReadLine());
+                    Console.Write("Admin Phone Number : ");
+                    int phone = int.Parse(Console.ReadLine());
 
                     int maxId = adminRepo.ShowAdmin().Any() ? adminRepo.ShowAdmin().Max(x => x.AdminId) : 0;
 
@@ -113,7 +117,9 @@ namespace _4th_Monthly_Project_IsDB
                     {
                         AdminId = maxId + 1,
                         AdminName = name,
-                        AdminPass = password
+                        AdminPass = password,
+                        AdminAge = age,
+                        AdminPhone = phone
                     };
 
                     adminRepo.AddAdmin(adminInfo);
@@ -144,16 +150,22 @@ namespace _4th_Monthly_Project_IsDB
                     }
                     else
                     {
-                        Console.Write("Updated Name : ");
+                        Console.Write("Updated Admin Name : ");
                         string name = Console.ReadLine();
-                        Console.Write("Updated Password : ");
+                        Console.Write("Updated Admin Password : ");
                         string password = Console.ReadLine();
+                        Console.Write("Updated Admin Age : ");
+                        int age = int.Parse(Console.ReadLine());
+                        Console.Write("Updated Admin Phone Number : ");
+                        int phone = int.Parse(Console.ReadLine());
 
                         AdminInfo adminInfo = new AdminInfo
                         {
                             AdminId = id,
                             AdminName = name,
-                            AdminPass = password
+                            AdminPass = password,
+                            AdminAge = age,
+                            AdminPhone = phone
                         };
                         adminRepo.UpdateAdmin(adminInfo);
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -222,14 +234,14 @@ namespace _4th_Monthly_Project_IsDB
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("\n\t\t\t\t\t============================");
                         Console.WriteLine("\t\t\t\t\t\tTotal Admin");
                         Console.WriteLine("\t\t\t\t\t============================");
                         Console.ForegroundColor = ConsoleColor.White;
                         foreach (var item in adminRepo.ShowAdmin())
                         {
-                            Console.WriteLine($"\nAdmin ID : {item.AdminId}\nAdmin Name : {item.AdminName}\nAdmin Password : {item.AdminPass}\n");
+                            Console.WriteLine($"\nAdmin ID : {item.AdminId}\nAdmin Name : {item.AdminName}\nAdmin Password : {item.AdminPass}\nAdmin Age : {item.AdminAge}\nAdmin Phone Number : {item.AdminPhone}\n");
                         }
                     }
                 }
@@ -255,7 +267,7 @@ namespace _4th_Monthly_Project_IsDB
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\t\t\t\t\t***************************************\n");
                 Console.ForegroundColor = ConsoleColor.White;
 
@@ -277,10 +289,10 @@ namespace _4th_Monthly_Project_IsDB
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("\n\t\t\t\t\t=============================");
-                        Console.WriteLine($"\t\t\t\t\tWelcome {item.AdminName}");
-                        Console.WriteLine("\t\t\t\t\t=============================");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("\n==========================");
+                        Console.WriteLine($"Welcome {item.AdminName}");
+                        Console.WriteLine("==========================");
                         Console.ForegroundColor = ConsoleColor.White;
 
                         Console.ForegroundColor = ConsoleColor.Yellow;

@@ -36,6 +36,14 @@ namespace _4th_Monthly_Project_IsDB.AdminPart
             {
                 _adminInfo.AdminPass = adminInfo.AdminPass;
             }
+            if (adminInfo.AdminAge != null)
+            {
+                _adminInfo.AdminAge = adminInfo.AdminAge;
+            }
+            if (adminInfo.AdminPhone != null)
+            {
+                _adminInfo.AdminPhone = adminInfo.AdminPhone;
+            }
         }
 
         public void DeleteAdmin(int adminId)
